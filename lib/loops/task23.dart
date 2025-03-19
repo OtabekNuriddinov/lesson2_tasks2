@@ -16,6 +16,5 @@ int fibonachi(int n){
     f2 = next;
     summa += next;
   }
-
   return summa - 1;
 }

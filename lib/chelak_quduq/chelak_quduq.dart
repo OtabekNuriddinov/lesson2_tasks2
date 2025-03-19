@@ -45,34 +45,40 @@ class _WellState extends State<Well> {
                     width: 100,
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: AssetImage('assets/images/bucket2.png'),
-                        )),
+                      fit: BoxFit.cover,
+                      image: AssetImage('assets/images/bucket2.png'),
+                    )),
                   ),
                   childWhenDragging: WellWidget(),
                   child: WellWidget(),
                 ),
               ),
-              DragTarget(builder: (BuildContext context, List<int?> accepted,
-                  List<dynamic> rejected) {
-                return Container(
-                  height: 160,
-                  width: 120,
-                  color: Colors.white,
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Container(
-                      width: 120,
-                      height: height,
-                      color: Colors.blue,
+              DragTarget(
+                builder: (BuildContext context, List<int?> accepted,
+                    List<dynamic> rejected) {
+                  return Container(
+                    height: 160,
+                    width: 120,
+                    decoration: BoxDecoration(
+                        color: Colors.transparent,
+                        border: Border(
+                            right: BorderSide(color: Colors.black, width: 2),
+                            left: BorderSide(color: Colors.black, width: 2),
+                            bottom: BorderSide(color: Colors.black, width: 2))),
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Container(
+                        width: 120,
+                        height: height,
+                        color: Colors.blue,
+                      ),
                     ),
-                  ),
-                );
-              },
-                onAcceptWithDetails: (DragTargetDetails<int>details){
-                setState(() {
-                  height += 10;
-                });
+                  );
+                },
+                onAcceptWithDetails: (DragTargetDetails<int> details) {
+                  setState(() {
+                    height += 10;
+                  });
                 },
               )
             ],
